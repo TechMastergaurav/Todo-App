@@ -1,4 +1,4 @@
-Todo Application
+##Todo Application##
 
 This project is a full-stack Todo application built according to the assignment requirements.
 It includes user authentication, a simple password reset flow, and complete CRUD functionality for managing todos.
