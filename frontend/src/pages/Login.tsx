@@ -24,7 +24,6 @@ export default function Login() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
-          {/* Email */}
           <input
             {...register("email")}
             placeholder="Email Address"

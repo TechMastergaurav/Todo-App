@@ -6,7 +6,7 @@ export default function Forgot() {
   const nav = useNavigate();
 
   const onSubmit = (data: any) => {
-    // Pass email safely to Reset page
+    
     nav("/reset", { state: { email: data.email } });
   };
 
@@ -27,8 +27,7 @@ export default function Forgot() {
             required
           />
 
-          {/* ✅ Button should NOT have onClick */}
-          <button
+               <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold shadow"
           >

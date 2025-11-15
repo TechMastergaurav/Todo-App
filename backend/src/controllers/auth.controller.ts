@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import crypto from "crypto";
 import User from "../models/User.js";
-import { sendResetEmail } from "../utils/mailer.js";
+
 
 export const signup = async (req: Request, res: Response, next: NextFunction) => {
   try {

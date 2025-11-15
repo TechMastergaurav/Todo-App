@@ -7,10 +7,10 @@ export default function Reset() {
   const nav = useNavigate();
   const location = useLocation();
 
-  // Email passed from Forgot.tsx
+ 
   const email = location.state?.email;
 
-  // If user opened /reset directly → block access
+  
   if (!email) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-red-50">

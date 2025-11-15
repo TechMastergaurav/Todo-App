@@ -3,7 +3,7 @@ import Todo from "../models/Todo.js";
 
 export const createTodo = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    // @ts-ignore
+    //@ts-ignore
     const userId = req.user.id;
     const { title, notes } = req.body;
     if (!title) return res.status(400).json({ message: "title required" });

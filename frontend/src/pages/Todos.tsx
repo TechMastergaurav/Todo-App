@@ -9,11 +9,11 @@ export default function Todos() {
   const { register, handleSubmit, reset } = useForm();
   const logout = useAuth((s) => s.logout);
 
-  // -------- STATE FOR EDITING --------
+ 
   const [editId, setEditId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
 
-  // -------- FETCH TODOS --------
+ 
   const { data: todos } = useQuery({
     queryKey: ["todos"],
     queryFn: async () => {
@@ -22,33 +22,32 @@ export default function Todos() {
     },
   });
 
-  // -------- ADD TODO --------
+  
   const add = useMutation({
     mutationFn: (payload: any) => api.post("/todos", payload),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["todos"] }),
   });
 
-  // -------- TOGGLE COMPLETE --------
+  
   const toggle = useMutation({
     mutationFn: (payload: any) =>
       api.put(`/todos/${payload.id}`, { completed: payload.completed }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["todos"] }),
   });
 
-  // -------- DELETE TODO --------
+  
   const del = useMutation({
     mutationFn: (id: string) => api.delete(`/todos/${id}`),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["todos"] }),
   });
 
-  // -------- SAVE EDITED TODO --------
+  
   const saveEdit = async (id: string) => {
     await api.put(`/todos/${id}`, { title: editText });
     qc.invalidateQueries({ queryKey: ["todos"] });
     setEditId(null);
   };
 
-  // -------- ADD TODO FORM --------
   const onSubmit = (data: any) => {
     add.mutate(data);
     reset();
@@ -57,7 +56,7 @@ export default function Todos() {
   return (
     <div className="max-w-xl mx-auto">
 
-      {/* HEADER */}
+      
       <div className="flex justify-between items-center mb-5">
         <h2 className="text-2xl font-bold">My Todos</h2>
 
@@ -69,7 +68,7 @@ export default function Todos() {
         </button>
       </div>
 
-      {/* ADD TODO INPUT */}
+   
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex gap-2 mb-5"
@@ -85,7 +84,7 @@ export default function Todos() {
         </button>
       </form>
 
-      {/* TODOS LIST */}
+      
       <ul className="space-y-3">
 
         {todos?.length === 0 && (
@@ -98,7 +97,7 @@ export default function Todos() {
             className="flex justify-between items-center p-3 border rounded-xl bg-white shadow-sm"
           >
             <div className="flex items-center gap-3">
-              {/* CHECKBOX */}
+         
               <input
                 type="checkbox"
                 checked={t.completed}
@@ -107,7 +106,7 @@ export default function Todos() {
                 }
               />
 
-              {/* TITLE OR EDIT INPUT */}
+          
               {editId === t._id ? (
                 <input
                   value={editText}
@@ -121,7 +120,7 @@ export default function Todos() {
               )}
             </div>
 
-            {/* ACTION BUTTONS */}
+            
             <div className="flex items-center gap-3">
               {editId === t._id ? (
                 <>
@@ -151,7 +150,7 @@ export default function Todos() {
                 </button>
               )}
 
-              {/* DELETE BUTTON */}
+             
               <button
                 onClick={() => del.mutate(t._id)}
                 className="text-red-600 font-semibold"
