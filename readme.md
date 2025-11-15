@@ -1,5 +1,8 @@
 Todo Application
-This project is a full-stack Todo application built according to the assignment requirements. It includes user authentication, password reset flow, and complete CRUD operations for todos. The frontend is built with React + TypeScript, and the backend is built with Node.js, Express, and MongoDB.
+
+This project is a full-stack Todo application built according to the assignment requirements.
+It includes user authentication, a simple password reset flow, and complete CRUD functionality for managing todos.
+The frontend is developed using React + TypeScript, while the backend is built using Node.js, Express, and MongoDB.
 
 Technologies Used
 Frontend
@@ -10,13 +13,13 @@ TypeScript
 
 TailwindCSS
 
-React Query (for API caching and mutations)
+React Query (API caching & mutations)
 
 React Hook Form
 
 React Router
 
-Zustand (for storing auth token)
+Zustand (auth token state management)
 
 Backend
 
@@ -28,9 +31,9 @@ MongoDB + Mongoose
 
 JWT Authentication
 
-Bcrypt password hashing
+Bcrypt Password Hashing
 
-✔️ Features Implemented
+Features Implemented
 Authentication
 
 Signup page
@@ -43,9 +46,9 @@ Protected Todo page
 
 Logout
 
-Forgot password page
+Forgot Password page
 
-Reset password page (user enters new password directly)
+Reset Password page (user directly enters new password)
 
 Todo Module
 
@@ -53,12 +56,13 @@ Add new todo
 
 Edit todo title (inline editing)
 
-Toggle completed/active
+Mark todo as active or completed
 
 Active todos section
 
 Completed todos section
 
-Remove todo
+Delete todo
 
+Automatic UI updates using React Query
 Auto UI update on every change using React Query
